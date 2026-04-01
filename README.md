@@ -82,6 +82,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-multicharge-green.svg)](https://anaconda.org/conda-forge/multicharge) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/multicharge.svg)](https://anaconda.org/conda-forge/multicharge) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/multicharge.svg)](https://anaconda.org/conda-forge/multicharge) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/multicharge.svg)](https://anaconda.org/conda-forge/multicharge) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-multicharge--devel-green.svg)](https://anaconda.org/conda-forge/multicharge-devel) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/multicharge-devel.svg)](https://anaconda.org/conda-forge/multicharge-devel) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/multicharge-devel.svg)](https://anaconda.org/conda-forge/multicharge-devel) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/multicharge-devel.svg)](https://anaconda.org/conda-forge/multicharge-devel) |
 
 Installing multicharge
 ======================
@@ -93,16 +94,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `multicharge` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `multicharge, multicharge-devel` can be installed with `conda`:
 
 ```
-conda install multicharge
+conda install multicharge multicharge-devel
 ```
 
 or with `mamba`:
 
 ```
-mamba install multicharge
+mamba install multicharge multicharge-devel
 ```
 
 It is possible to list all of the versions of `multicharge` available on your platform with `conda`:

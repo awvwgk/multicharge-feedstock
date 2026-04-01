@@ -2,7 +2,11 @@
 
 set -ex
 
-mv $PREFIX/lib/pkgconfig/{lapack,blas}.pc $SRC_DIR
+for pkg in lapack blas; do
+  if [ -f $PREFIX/lib/pkgconfig/$pkg.pc ]; then
+    mv $PREFIX/lib/pkgconfig/$pkg.pc $SRC_DIR
+  fi
+done
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
   MESON_ARGS=${MESON_ARGS:---prefix=${PREFIX} --libdir=lib}
@@ -16,6 +20,7 @@ fi
 
 meson setup _build \
   ${MESON_ARGS} \
+  -Ddefault_library=shared \
   --wrap-mode=nodownload \
   -Dlapack=custom \
   -Dcustom_libraries=lapack,blas
@@ -26,4 +31,8 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
 fi
 meson install -C _build --no-rebuild
 
-mv $SRC_DIR/{lapack,blas}.pc $PREFIX/lib/pkgconfig
+for pkg in lapack blas; do
+  if [ -f $SRC_DIR/$pkg.pc ]; then
+    mv $SRC_DIR/$pkg.pc $PREFIX/lib/pkgconfig
+  fi
+done
